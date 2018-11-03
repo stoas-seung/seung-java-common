@@ -1,0 +1,71 @@
+apply plugin: 'java'
+apply plugin: 'maven'
+
+group = 'seung.java'
+version = '18.11.03'
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+
+	// logger
+	//api('org.slf4j:slf4j-api:1.7.25')
+	compile('ch.qos.logback:logback-classic:1.2.3')
+	
+	// apache commons
+	compile('commons-io:commons-io:2.6')
+	compile('commons-codec:commons-codec:1.11')
+	compile('org.apache.commons:commons-lang3:3.8.1')
+	
+	// json
+	compile('com.google.code.gson:gson:2.8.5')
+	
+	// parser
+	compile('org.jsoup:jsoup:1.9.1')
+	
+	// poi
+	compile('org.apache.poi:poi:3.17')
+	compile('org.apache.poi:poi-ooxml:3.17')
+	
+	// bouncycastle
+	compile('org.bouncycastle:bcprov-jdk16:1.45')
+	
+	// Use JUnit test framework
+	testCompile('junit:junit:4.12')
+}
+
+task sourcesJar(type: Jar, dependsOn: classes) {
+	classifier = 'sources'
+	from sourceSets.main.allSource
+}
+
+task javadocJar(type: Jar, dependsOn: javadoc) {
+	classifier = 'javadoc'
+	from javadoc.destinationDir
+}
+
+artifacts {
+	archives sourcesJar
+	archives javadocJar
+}
+
+// To specify a license in the pom:
+install {
+	repositories.mavenInstaller {
+		pom.project {
+			licenses {
+				license {
+					name 'The Apache Software License, Version 2.0'
+					url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+					distribution 'repo'
+				}
+			}
+		}
+	}
+}
