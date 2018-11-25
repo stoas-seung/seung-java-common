@@ -13,7 +13,7 @@ import org.apache.commons.io.IOUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import seung.java.common.arguments.SCV;
+import seung.java.common.arguments.SConstants;
 import seung.java.common.arguments.SMap;
 
 /**
@@ -105,11 +105,11 @@ public class SFileU {
 		ArrayList fileList = new ArrayList<SMap>();
 		
 		if(rootFile.isFile()) {
-			if(fileType.contains(SCV._S_FILE) && (fileNameMatch == null || fileNameMatch.length() == 0 || rootFile.getPath().toLowerCase().contains(fileNameMatch.toLowerCase()))) {
+			if(fileType.contains(SConstants._S_FILE) && (fileNameMatch == null || fileNameMatch.length() == 0 || rootFile.getPath().toLowerCase().contains(fileNameMatch.toLowerCase()))) {
 				fileList.add(new SFileVO(rootFile));
 			}
 		} else if(rootFile.isDirectory()) {
-			if(fileType.contains(SCV._S_DIRECTORY) && (fileNameMatch == null || fileNameMatch.length() == 0 || rootFile.getPath().toLowerCase().contains(fileNameMatch.toLowerCase()))) fileList.add(new SFileVO(rootFile));
+			if(fileType.contains(SConstants._S_DIRECTORY) && (fileNameMatch == null || fileNameMatch.length() == 0 || rootFile.getPath().toLowerCase().contains(fileNameMatch.toLowerCase()))) fileList.add(new SFileVO(rootFile));
 			for(File file : rootFile.listFiles()) {
 				if(depth > -1) fileList.addAll(getFileListInfo(file, fileNameMatch, fileType, depth - 1));
 			}

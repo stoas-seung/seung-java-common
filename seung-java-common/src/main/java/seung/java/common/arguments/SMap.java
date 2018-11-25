@@ -3,6 +3,7 @@ package seung.java.common.arguments;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
@@ -87,6 +88,10 @@ public class SMap extends LinkedHashMap {
 	
 	public int getInt(String key) {
 		return containsKey(key) ? Integer.parseInt(getString(key)) : null;
+	}
+	
+	public BigInteger getBigInteger(String key) {
+		return containsKey(key) ? BigInteger.valueOf(getLong(key)) : null;
 	}
 	
 	public double getDouble(String key) {

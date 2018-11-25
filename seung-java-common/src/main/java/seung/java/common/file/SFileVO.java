@@ -12,7 +12,7 @@ import java.text.SimpleDateFormat;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 
-import seung.java.common.arguments.SCV;
+import seung.java.common.arguments.SConstants;
 
 /**
  * author       seung
@@ -62,8 +62,8 @@ public class SFileVO implements Serializable {
 		setCreationTime(Files.getFileAttributeView(Paths.get(file.getCanonicalPath()), BasicFileAttributeView.class).readAttributes().creationTime().toMillis());
 		setLength(file.length());
 		
-		if(file.isDirectory()) setFileType(SCV._S_DIRECTORY);
-		else if(file.isFile()) setFileType(SCV._S_FILE);
+		if(file.isDirectory()) setFileType(SConstants._S_DIRECTORY);
+		else if(file.isFile()) setFileType(SConstants._S_FILE);
 		else                   setFileType("");
 		
 		setFilePath(getCanonicalPath().replace("\\", "/"));

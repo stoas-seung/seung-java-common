@@ -4,7 +4,7 @@ package seung.java.common.arguments;
  * author       seung
  * description  constant variables
  */
-public class SCV {
+public class SConstants {
 
 	public static final int    _S_BUFFER_SIZE    = 2048;
 	
