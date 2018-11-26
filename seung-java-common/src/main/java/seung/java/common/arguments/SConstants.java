@@ -29,8 +29,11 @@ public class SConstants {
 	public static final String _S_FILE           = "FILE";
 	public static final String _S_DIRECTORY      = "DIR";
 	
-	public static final String _S_STRING         = "STRING";
 	public static final String _S_JSON           = "JSON";
+	public static final String _S_HTML           = "HTML";
+	public static final String _S_XML            = "XML";
+	
+	public static final String _S_STRING         = "STRING";
 	public static final String _S_BASE64         = "BASE64";
 	public static final String _S_HEX            = "HEX";
 	public static final String _S_SHA256         = "SHA256";
